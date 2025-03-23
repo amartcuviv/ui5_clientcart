@@ -1,0 +1,81 @@
+<mvc:View controllerName="fioritest.fioritest.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="_IDGenPage"
+        title="Lista de Clientes"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        
+        <headerContent>
+            <Button id="_IDGenButton"
+                icon="sap-icon://refresh"
+                tooltip="Actualizar"
+                press="onRefresh" />
+            <Button id="_IDGenButton1"
+                icon="sap-icon://add"
+                tooltip="Agregar Cliente"
+                press="onAddCustomer" />
+        </headerContent>
+        
+        <subHeader>
+            <Toolbar id="_IDGenToolbar1">
+                <SearchField id="_IDGenSearchField"
+                    width="100%"
+                    placeholder="Buscar cliente..."
+                    search="onSearch" />
+            </Toolbar>
+        </subHeader>
+        
+        <content>
+            <List
+                id="customerList"
+                items="{
+                    path: '/Customers',
+                    sorter: {
+                        path: 'Name',
+                        descending: false
+                    }
+                }"
+                noDataText="No se encontraron clientes"
+                mode="SingleSelectMaster"
+                selectionChange="onSelectionChange">
+                
+                <items>
+                    <ObjectListItem id="_IDGenObjectListItem"
+                        title="{Name}"
+                        number="{CustomerID}"
+                        numberState="{= ${Status} === 'Active' ? 'Success' : 'Error'}"
+                        intro="{Company}"
+                        type="Navigation"
+                        press="onCustomerPress">
+                        <attributes>
+                            <ObjectAttribute id="_IDGenObjectAttribute"
+                                title="Email"
+                                text="{Email}" />
+                            <ObjectAttribute id="_IDGenObjectAttribute1"
+                                title="Teléfono"
+                                text="{Phone}" />
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus id="_IDGenObjectStatus"
+                                text="{Status}"
+                                state="{= ${Status} === 'Active' ? 'Success' : 'Error'}" />
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        
+        <footer>
+            <Toolbar id="_IDGenToolbar2">
+                <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                <Text id="customerCount" text="Clientes: {/CustomerCount}" />
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <Button id="_IDGenButton2"
+                    text="Exportar"
+                    icon="sap-icon://excel-attachment"
+                    press="onExport" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

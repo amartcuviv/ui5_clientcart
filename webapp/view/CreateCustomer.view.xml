@@ -1,0 +1,71 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    controllerName="fioritest.fioritest.controller.CreateCustomer">
+    
+    <Page id="_IDGenPage1"
+        title="Crear Nuevo Cliente"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        
+        <content>
+            <f:SimpleForm
+                id="customerForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1">
+                
+                <f:content>
+                    <Label id="_IDGenLabel" text="ID Cliente" required="true"/>
+                    <Input id="customerIdInput" value="{/customer/CustomerID}" placeholder="ID de cliente"/>
+                    
+                    <Label id="_IDGenLabel1" text="Nombre" required="true"/>
+                    <Input id="nameInput" value="{/customer/Name}" placeholder="Nombre completo"/>
+                    
+                    <Label id="_IDGenLabel2" text="Empresa"/>
+                    <Input id="companyInput" value="{/customer/Company}" placeholder="Nombre de la empresa"/>
+                    
+                    <Label id="_IDGenLabel3" text="Email" required="true"/>
+                    <Input id="emailInput" value="{/customer/Email}" placeholder="ejemplo@dominio.com"/>
+                    
+                    <Label id="_IDGenLabel4" text="Teléfono"/>
+                    <Input id="phoneInput" value="{/customer/Phone}" placeholder="+34 XXX XXX XXX"/>
+                    
+                    <Label id="_IDGenLabel5" text="Estado"/>
+                    <Select id="statusSelect" selectedKey="{/customer/Status}">
+                        <core:Item id="_IDGenItem1" key="Active" text="Activo"/>
+                        <core:Item id="_IDGenItem2" key="Inactive" text="Inactivo"/>
+                    </Select>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        
+        <footer>
+            <Toolbar id="_IDGenToolbar">
+                <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+                <Button id="_IDGenButton3" 
+                    text="Cancelar" 
+                    press="onCancelPress" 
+                    type="Transparent"/>
+                <Button id="_IDGenButton4" 
+                    text="Guardar" 
+                    press="onSavePress" 
+                    type="Emphasized"/>
+            </Toolbar>
+        </footer>
+        
+    </Page>
+</mvc:View>

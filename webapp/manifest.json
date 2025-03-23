@@ -1,0 +1,110 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "fioritest.fioritest",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.0",
+      "toolsId": "7bae0be1-cff0-4a80-b7c4-9c0b1c80cc52"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fioritest.fioritest.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "fioritest.fioritest.view",
+        "async": true,
+        "viewPath": "fioritest.fioritest.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMainView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMainView"
+          ]
+        },
+        {
+          "pattern": "create",
+          "name": "createCustomer",
+          "target": ["createCustomer"]
+        }
+      ],
+      "targets": {
+        "TargetMainView": {
+          "id": "MainView",
+          "name": "MainView",
+          "viewLevel": 1
+        },
+        "createCustomer": {
+          "id":"createCustomer",
+          "viewId": "createCustomer",
+          "viewName": "CreateCustomer",
+          "viewLevel": 2
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "fioritest.fioritest.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
