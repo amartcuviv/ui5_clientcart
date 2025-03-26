@@ -40,8 +40,6 @@
                
                 <Panel id="IdPanelCliente" visible="true" headerText="Información del Cliente" expandable="true">
                 <content>
-
-        
                     <Label id="_IDGenLabel" text="ID Cliente" required="true"/>
                     <Input id="customerIdInput" value="{/customero/CustomerID}" placeholder="ID de cliente"/>
                     

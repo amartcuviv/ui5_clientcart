@@ -27,6 +27,10 @@ sap.ui.define([
             this.oRouter.getRoute("createCustomer").attachPatternMatched(this._onRouteMatched, this);
         },
 
+        // getRouter: function(){
+        //     return sap.ui.core.UIComponent.getRouterFor(this);
+        // },
+
         _onRouteMatched: function (oEvent) {
             // Reiniciar el formulario cuando se navega a esta vista
             const oModel = this.getView().getModel();
@@ -49,7 +53,7 @@ sap.ui.define([
 
         onNavBack: function () {
             // Navegar de vuelta a la lista
-            this.oRouter.navTo("main");
+            this.oRouter.navTo("RouteMainView");
         },
 
         onCancelPress: function () {
