@@ -30,11 +30,11 @@
             <List
                 id="customerList"
                 items="{
-                    path: '/Customers',
-                    sorter: {
-                        path: 'Name',
-                        descending: false
-                    }
+                 path: 'CustomerModel>/Customers',
+                 sorter: {
+                    path: 'Name',
+                    descending: false
+                 }
                 }"
                 noDataText="No se encontraron clientes"
                 mode="SingleSelectMaster"
@@ -42,24 +42,24 @@
                 
                 <items>
                     <ObjectListItem id="_IDGenObjectListItem"
-                        title="{Name}"
-                        number="{CustomerID}"
-                        numberState="{= ${Status} === 'Active' ? 'Success' : 'Error'}"
-                        intro="{Company}"
+                        title="{CustomerModel>Name}"
+                        number="{CustomerModel>CustomerID}"
+                        numberState="{= ${CustomerModel>Status} === 'Active' ? 'Success' : 'Error'}"
+                        intro="{CustomerModel>Company}"
                         type="Navigation"
                         press="onCustomerPress">
                         <attributes>
                             <ObjectAttribute id="_IDGenObjectAttribute"
                                 title="Email"
-                                text="{Email}" />
+                                text="{CustomerModel>Email}" />
                             <ObjectAttribute id="_IDGenObjectAttribute1"
                                 title="Teléfono"
-                                text="{Phone}" />
+                                text="{CustomerModel>Phone}" />
                         </attributes>
                         <firstStatus>
                             <ObjectStatus id="_IDGenObjectStatus"
-                                text="{Status}"
-                                state="{= ${Status} === 'Active' ? 'Success' : 'Error'}" />
+                                text="{CustomerModel>Status}"
+                                state="{= ${CustomerModel>Status} === 'Active' ? 'Success' : 'Error'}" />
                         </firstStatus>
                     </ObjectListItem>
                 </items>
@@ -69,7 +69,7 @@
         <footer>
             <Toolbar id="_IDGenToolbar2">
                 <ToolbarSpacer id="_IDGenToolbarSpacer" />
-                <Text id="customerCount" text="Clientes: {/CustomerCount}" />
+                <Text id="customerCount" text="Clientes: {CustomerModel>/CustomerCount}" />
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                 <Button id="_IDGenButton2"
                     text="Exportar"

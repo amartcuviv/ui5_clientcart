@@ -2,6 +2,14 @@
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <App id="app">
-    </App>
+    <Shell id='shellId'>
+
+        <App id="app">
+        <pages>
+        <mvc:XMLView id="appView" viewName="fioritest.fioritest.view.MainView"/>
+        </pages>
+        </App>
+
+    </Shell>
+   
 </mvc:View>

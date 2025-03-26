@@ -15,41 +15,20 @@ sap.ui.define([
     return Controller.extend("fioritest.fioritest.controller.MainView", {
         onInit: function () {
             // Crear un modelo JSON local para datos de ejemplo
-            const oModel = new JSONModel({
-                Customers: [
-                    {
-                        CustomerID: "C001",
-                        Name: "Juan Pérez",
-                        Company: "Empresa ABC",
-                        Email: "juan.perez@empresaabc.com",
-                        Phone: "+34 123 456 789",
-                        Status: "Active"
-                    },
-                    {
-                        CustomerID: "C002",
-                        Name: "María López",
-                        Company: "Corporación XYZ",
-                        Email: "maria.lopez@corpxyz.com",
-                        Phone: "+34 987 654 321",
-                        Status: "Active"
-                    },
-                    {
-                        CustomerID: "C003",
-                        Name: "Carlos Rodríguez",
-                        Company: "Industrias 123",
-                        Email: "carlos.rodriguez@ind123.com",
-                        Phone: "+34 555 123 456",
-                        Status: "Inactive"
-                    }
-                ],
-                CustomerCount: 3
-            });
+           
+            // var oModel = new JSONModel('/model/customers.json');
             
-            // Establecer el modelo en la vista
-            this.getView().setModel(oModel);
-            
+            // // Establecer el modelo en la vista
+            // this.getView().setModel(oModel);
+            var dataModel = this.getOwnerComponent().getModel("CustomerModel");
+			this.getView().setModel(dataModel, "CustomerModel");
+
+            //this.getView().setModel(this.getOwnerComponent().getModel("CustomerModel"), "CustomerModel");
+
+         
             // Guardar referencia a la lista para uso posterior
             this._oList = this.byId("customerList");
+         
         },
         
         onNavBack: function () {

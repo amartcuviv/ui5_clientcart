@@ -14,7 +14,13 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.17.0",
       "toolsId": "7bae0be1-cff0-4a80-b7c4-9c0b1c80cc52"
-    }
+    },
+    "dataSources": {
+			"CustomerModel": {
+				"uri": "model/customers.json",
+				"type": "JSON"
+			}
+		}
   },
   "sap.ui": {
     "technology": "UI5",
@@ -51,7 +57,11 @@
         "settings": {
           "bundleName": "fioritest.fioritest.i18n.i18n"
         }
-      }
+      },
+      "CustomerModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "CustomerModel"
+			}
     },
     "resources": {
       "css": [

@@ -1,0 +1,29 @@
+{
+    "Customers": [
+        {
+            "CustomerID": "C001",
+            "Name": "Juan Pérez",
+            "Company": "Empresa ABC",
+            "Email": "juan.perez@empresaabc.com",
+            "Phone": "+34 123 456 789",
+            "Status": "Active"
+        },
+        {
+            "CustomerID": "C002",
+            "Name": "María López",
+            "Company": "Corporación XYZ",
+            "Email": "maria.lopez@corpxyz.com",
+            "Phone": "+34 987 654 321",
+            "Status": "Active"
+        },
+        {
+            "CustomerID": "C003",
+            "Name": "Carlos Rodríguez",
+            "Company": "Industrias 123",
+            "Email": "carlos.rodriguez@ind123.com",
+            "Phone": "+34 555 123 456",
+            "Status": "Inactive"
+        }
+    ],
+    "CustomerCount": 3
+}

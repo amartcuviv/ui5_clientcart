@@ -4,7 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
     controllerName="fioritest.fioritest.controller.CreateCustomer">
-    
+   
     <Page id="_IDGenPage1"
         title="Crear Nuevo Cliente"
         showNavButton="true"
@@ -27,29 +27,46 @@
                 columnsXL="1"
                 columnsL="1"
                 columnsM="1">
-                
-                <f:content>
+
+                <f:toolbar>
+                <Toolbar id="_IDGenToolbar3">
+                <content>
+                <ToolbarSpacer id="toolbarspacer"/>
+                <Text id="_IDGenText5" text="
+                Cliente se guardará en base de datos del sistema." />
+                </content>
+                </Toolbar>
+                </f:toolbar>
+               
+                <Panel id="IdPanelCliente" visible="true" headerText="Información del Cliente" expandable="true">
+                <content>
+
+        
                     <Label id="_IDGenLabel" text="ID Cliente" required="true"/>
-                    <Input id="customerIdInput" value="{/customer/CustomerID}" placeholder="ID de cliente"/>
+                    <Input id="customerIdInput" value="{/customero/CustomerID}" placeholder="ID de cliente"/>
                     
                     <Label id="_IDGenLabel1" text="Nombre" required="true"/>
-                    <Input id="nameInput" value="{/customer/Name}" placeholder="Nombre completo"/>
+                    <Input id="nameInput" value="{/customero/Name}" placeholder="Nombre completo"/>
                     
                     <Label id="_IDGenLabel2" text="Empresa"/>
-                    <Input id="companyInput" value="{/customer/Company}" placeholder="Nombre de la empresa"/>
+                    <Input id="companyInput" value="{/customero/Company}" placeholder="Nombre de la empresa"/>
                     
                     <Label id="_IDGenLabel3" text="Email" required="true"/>
-                    <Input id="emailInput" value="{/customer/Email}" placeholder="ejemplo@dominio.com"/>
+                    <Input id="emailInput" value="{/customero/Email}" placeholder="ejemplo@dominio.com"/>
                     
                     <Label id="_IDGenLabel4" text="Teléfono"/>
-                    <Input id="phoneInput" value="{/customer/Phone}" placeholder="+34 XXX XXX XXX"/>
+                    <Input id="phoneInput" value="{/customero/Phone}" placeholder="+34 XXX XXX XXX"/>
                     
                     <Label id="_IDGenLabel5" text="Estado"/>
-                    <Select id="statusSelect" selectedKey="{/customer/Status}">
+                    <Select id="statusSelect" selectedKey="{/customero/Status}">
                         <core:Item id="_IDGenItem1" key="Active" text="Activo"/>
                         <core:Item id="_IDGenItem2" key="Inactive" text="Inactivo"/>
                     </Select>
-                </f:content>
+              
+
+                </content>
+                </Panel>
+                
             </f:SimpleForm>
         </content>
         
@@ -68,4 +85,5 @@
         </footer>
         
     </Page>
+    
 </mvc:View>
