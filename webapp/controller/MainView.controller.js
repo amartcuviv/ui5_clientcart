@@ -41,7 +41,7 @@ sap.ui.define([
             } else {
                 // Si no hay historial, navegar a la página inicial
                 const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("home", {}, true);
+                //oRouter.navTo("home", {}, true);
             }
         },
         
