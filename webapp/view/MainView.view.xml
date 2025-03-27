@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="_IDGenPage"
-        title="Lista de Clientes"
+        title="Lista de Clientes v2"
         showNavButton="true"
         navButtonPress="onNavBack">
         
