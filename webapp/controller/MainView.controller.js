@@ -46,7 +46,7 @@ sap.ui.define([
         
         onRefresh: function () {
             // En una aplicación real, aquí se recargarían los datos del backend
-            MessageToast.show("Actualizando datos...");
+            MessageToast.show("Actualizando datos..");
             
             // Simular actualización de datos tras un breve retraso
             setTimeout(() => {
