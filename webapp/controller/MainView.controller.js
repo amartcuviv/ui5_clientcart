@@ -26,8 +26,7 @@ sap.ui.define([
             //this.getView().setModel(this.getOwnerComponent().getModel("CustomerModel"), "CustomerModel");
 
          
-            // Guardar referencia a la lista para uso posterior
-            this._oList = this.byId("customerList");
+            // Guardar referencia a la lista para uso posterior++            this._oList = this.byId("customerList");
          
         },
         

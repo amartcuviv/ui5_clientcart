@@ -4,7 +4,7 @@
     xmlns="sap.m">
     <Shell id='shellId'>
 
-        <App id="app">
+        <App id="idMainApp">
         <!-- <pages> Deshabilitado ya que el routing está habilitado en el component.js
         <mvc:XMLView id="appView" viewName="fioritest.fioritest.view.MainView"/>
         </pages> -->
