@@ -52,7 +52,7 @@ sap.ui.define([
             setTimeout(() => {
                 const oModel = this.getView().getModel();
                 oModel.setProperty("/CustomerCount", oModel.getProperty("/Customers").length);
-                MessageToast.show("Datos actualizados");
+                MessageToast.show("Datos actualizados" + oModel.getProperty("/Customers").length + " clientes");
             }, 1000);
         },
         
