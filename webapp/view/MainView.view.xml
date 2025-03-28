@@ -41,7 +41,7 @@
                 selectionChange="onSelectionChange">
                 
                 <items>
-                    <ObjectListItem id="_IDGenObjectListItem"
+                    <ObjectListItem id="listItem"
                         title="{CustomerModel>Name}"
                         number="{CustomerModel>CustomerID}"
                         numberState="{= ${CustomerModel>Status} === 'Active' ? 'Success' : 'Error'}"

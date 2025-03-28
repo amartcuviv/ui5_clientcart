@@ -70,46 +70,57 @@
         }
       ]
     },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "idMainApp",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "fioritest.fioritest.view",
-        "async": true,
-        "viewPath": "fioritest.fioritest.view"
-      },
-      "routes": [
-        {
-          "name": "RouteMainView",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMainView"
-          ]
-        },
-        {
-          "pattern": "create",
-          "name": "createCustomer",
-          "target": ["createCustomer"]
-        }
-      ],
-      "targets": {
-        "TargetMainView": {
-          "id": "MainView",
-          "name": "MainView",
-          "viewLevel": 1
-        },
-        "createCustomer": {
-          "id":"createCustomer",
-          "viewId": "createCustomer",
-          "viewName": "CreateCustomer",
-          "viewLevel": 2
-        }
-      }
+  "routing": {
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "controlAggregation": "pages",
+    "controlId": "idMainApp",
+    "transition": "slide",
+    "type": "View",
+    "viewType": "XML",
+    "path": "fioritest.fioritest.view",
+    "async": true,
+    "viewPath": "fioritest.fioritest.view"
+  },
+  "routes": [
+    {
+      "name": "RouteMainView",
+      "pattern": ":?query:",
+      "target": [
+        "TargetMainView"
+      ]
     },
+    {
+      "pattern": "create",
+      "name": "createCustomer",
+      "target": ["createCustomer"]
+    },
+    {
+      "pattern": "customerDetail/{customerId}", 
+      "name":"customerDetail",
+      "target":["TargetCustomerDetailView"]
+    }
+  ],
+  "targets": {
+    "TargetMainView": {
+      "id": "MainView",
+      "name": "MainView",
+      "viewLevel": 1
+    },
+    "createCustomer": {
+      "id":"createCustomer",
+      "viewId": "createCustomer",
+      "viewName": "CreateCustomer",
+      "viewLevel": 2
+    },
+    "TargetCustomerDetailView":{
+      "id":"CustomerDetailView",
+      "name":"CustomerDetailView",
+      "viewName":"CustomerDetailView",
+      "viewLevel":1
+    }
+  }
+},
     "rootView": {
       "viewName": "fioritest.fioritest.view.App",
       "type": "XML",

@@ -29,6 +29,7 @@ sap.ui.define([
             // Guardar referencia a la lista para uso posterior++            this._oList = this.byId("customerList");
          
         },
+
         
         onNavBack: function () {
             // Navegar hacia atrás en el historial del navegador
@@ -56,6 +57,7 @@ sap.ui.define([
             }, 1000);
         },
         
+
         onAddCustomer: function () {
             // En una aplicación real, aquí se navegaría a un formulario de creación
             // o se abriría un diálogo para crear un nuevo cliente
@@ -97,17 +99,25 @@ sap.ui.define([
             }, 100);
         },
         
-        onSelectionChange: function (oEvent) {
+        onSelectionChange: function(oEvent) {
             // Obtener el elemento seleccionado
             const oSelectedItem = oEvent.getParameter("listItem");
-            const oContext = oSelectedItem.getBindingContext();
-            const sPath = oContext.getPath();
-            const oCustomer = oContext.getObject();
+            const oModel = oSelectedItem.getBindingContext("CustomerModel"); // Especifica el modelo
             
-            MessageToast.show(`Cliente seleccionado: ${oCustomer.Name}`);
-            
-            // Aquí se podrían realizar acciones adicionales basadas en la selección
+            if (!oModel) {
+                console.error("BindingContext no encontrado");
+                return;
+            }
+        
+            const sCustomerId = oModel.getProperty("CustomerID");
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("customerDetail", {
+                customerId: sCustomerId
+            });
+
+            //MessageToast.show(`Cliente seleccionado: ${oCustomer.Name}`);
         },
+        
         
         onCustomerPress: function (oEvent) {
             // Obtener el elemento seleccionado
@@ -120,10 +130,10 @@ sap.ui.define([
             MessageToast.show(`Navegando al detalle del cliente: ${sCustomerId}`);
             
             // Ejemplo: Navegar a la vista de detalle
-            // const oRouter = this.getOwnerComponent().getRouter();
-            // oRouter.navTo("customerDetail", {
-            //     customerId: sCustomerId
-            // });
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("customerDetail", {
+                customerId: sCustomerId
+            });
         },
         
         onExport: function () {
