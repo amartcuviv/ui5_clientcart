@@ -36,6 +36,7 @@ function (Controller, JSONModel, Filter, FilterOperator, MessageBox, MessageToas
             this.getNumberOfClients();
          
         },
+        
         onBeforeRebindTable: function(oEvent) {
             var oSmartTable = oEvent.getSource();
             var sFilter = "/ZFIORI_CLIENTE";
