@@ -1,0 +1,29 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="fioriamlclient.fioritestclient.controller.CustomerDetailView">
+
+    <Page id="idCustomerDetailPage" title="Detalle Cliente">
+        <content>
+            <f:SimpleForm id="_IDGenSimpleForm1" editable="false">
+                <f:content>
+                    <Label id="_IDGenLabel3" text="Nombre"/>
+                    <Text id="_IDGenText" text="{Name}"/>
+
+                    <Label id="_IDGenLabel6" text="ID Cliente"/>
+                    <Text id="_IDGenText1" text="{CustomerId}"/>
+
+                    <Label id="_IDGenLabel7" text="Grupo Corporativo"/>
+                    <Text id="_IDGenText2" text="{Company}"/>
+
+                    <Label id="_IDGenLabel8" text="Fax"/>
+                    <Text id="_IDGenText3" text="{Fax}"/>
+
+                    <Label id="_IDGenLabel9" text="Código Postal"/>
+                    <Text id="_IDGenText4" text="{PostalCode}"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

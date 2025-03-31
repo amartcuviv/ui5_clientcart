@@ -1,0 +1,12 @@
+{
+    "base": "./dist",
+    "conn_usestrictssl" : false,
+    "conn_server": "http://cuvawss4d01.linkeit.local:50000/",
+    "conn_client" : "100",
+    "conn_user": "AMARTINEZ",
+    "conn_password": "Aml2025!",
+    "abap_package": "ZDMO_FIORI_AML",
+    "abap_bsp": "ZDEMO_CLIENTS",
+    "abap_bsp_text": "UI5 Deployment Demo Client Cart",
+    "abap_transport":"S4DK919422"
+}

@@ -1,0 +1,159 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "fioriamlclient.fioritestclient",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.0",
+      "toolsId": "1c9ad2e2-224c-4c50-b9f6-07261f6e26b8"
+    },
+    "dataSources": {
+      "ZFIORI_CLIENTE_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZFIORI_CLIENTE_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/ZFIORI_CLIENTE_CDS_VAN.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZFIORI_CLIENTE_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZFIORI_CLIENTE_CDS_VAN"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ZCLIENT-DISPLAY": {
+          "semanticObject": "ZCLIENT",
+          "action": "DISPLAY",
+          "title": "{{ZCLIENT-DISPLAY.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.96.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fioriamlclient.fioritestclient.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "fioriamlclient.fioritestclient.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMainView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMainView"
+          ]
+        },
+        {
+          "pattern": "create",
+          "name": "createCustomer",
+          "target": ["createCustomer"]
+        },
+        {
+          "pattern": "customerDetail/{customerId}", 
+          "name":"customerDetail",
+          "target":["TargetCustomerDetailView"]
+        }
+      ],
+      "targets": {
+        "TargetMainView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MainView",
+          "viewName": "MainView"
+        },
+        "createCustomer": {
+      "id":"createCustomer",
+      "viewId": "createCustomer",
+      "viewName": "CreateCustomer",
+      "viewLevel": 2
+    },
+    "TargetCustomerDetailView":{
+      "id":"CustomerDetailView",
+      "name":"CustomerDetailView",
+      "viewName":"CustomerDetailView",
+      "viewLevel":1
+    }
+      }
+    },
+    "rootView": {
+      "viewName": "fioriamlclient.fioritestclient.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
