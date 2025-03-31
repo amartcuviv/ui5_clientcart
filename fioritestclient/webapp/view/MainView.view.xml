@@ -36,6 +36,7 @@
                 width="100%"
                 tableType="ResponsiveTable"
                 header="Lista de Clientes"
+                
                 enableAutoBinding="true"
                 showRowCount="true"
                 smartFilterId="smartFilterBar"

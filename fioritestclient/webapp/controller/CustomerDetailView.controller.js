@@ -22,6 +22,7 @@ sap.ui.define([
             // Cargar datos filtrados por el CustomerId
             this._loadCustomerData(sCustomerId);
         },
+        
 
         _loadCustomerData: function (customerId) {
             const oModel = this.getView().getModel();

@@ -35,6 +35,7 @@ function (Controller, JSONModel, Filter, FilterOperator, MessageBox, MessageToas
             //Actualizar con el n de clientes
             this.getNumberOfClients();
          
+            
         },
 
         onBeforeRebindTable: function(oEvent) {

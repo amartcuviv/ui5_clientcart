@@ -4,6 +4,7 @@
     xmlns:f="sap.ui.layout.form"
     controllerName="fioriamlclient.fioritestclient.controller.CustomerDetailView">
 
+
     <Page id="idCustomerDetailPage" title="Detalle Cliente">
         <content>
             <f:SimpleForm id="_IDGenSimpleForm1" editable="false">

@@ -65,6 +65,7 @@ sap.ui.define([
                 return;
             }
 
+            
             // Obtener datos del cliente
             const oModel = this.getView().getModel();
             const oNewCustomer = oModel.getProperty("/customero");

@@ -9,7 +9,6 @@
         title="Crear Nuevo Cliente"
         showNavButton="true"
         navButtonPress="onNavBack">
-        
         <content>
             <f:SimpleForm
                 id="customerForm"

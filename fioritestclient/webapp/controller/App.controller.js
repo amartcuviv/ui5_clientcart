@@ -7,6 +7,7 @@ sap.ui.define(
   
       return BaseController.extend("fioriamlclient.fioritestclient.controller.App", {
         onInit: function() {
+          
         }
       });
     }
