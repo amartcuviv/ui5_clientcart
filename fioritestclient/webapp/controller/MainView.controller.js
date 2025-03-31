@@ -36,18 +36,12 @@ function (Controller, JSONModel, Filter, FilterOperator, MessageBox, MessageToas
             this.getNumberOfClients();
          
         },
-        
+
         onBeforeRebindTable: function(oEvent) {
             var oSmartTable = oEvent.getSource();
             var sFilter = "/ZFIORI_CLIENTE";
             oSmartTable.setTableBindingPath(sFilter);
         },
-        initialise:function(oEvent){
-            var a = 2;
-        },
-        
-
-        
         onNavBack: function () {
             // Navegar hacia atrás en el historial del navegador
             const oHistory = sap.ui.core.routing.History.getInstance();
