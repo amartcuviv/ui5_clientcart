@@ -1,0 +1,86 @@
+<mvc:View
+    controllerName="bpcart3.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page id="page" title="{i18n>title}">
+    <headerContent></headerContent>
+        <content>
+            <!-- Smart Filter Bar -->
+            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="PartnerTypeSet" >
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration1" 
+                        key="Partner" 
+                        label="Partner"
+                        visibleInAdvancedArea="true"
+                        preventInitialDataFetchInValueHelpDialog="false"
+                        visible="true"/>
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+
+            <!-- Smart Table -->
+            <smartTable:SmartTable
+                id="partnerTypeSmartTable"
+                entitySet="PartnerTypeSet"
+                smartFilterId="smartFilterBar"
+                tableType="ResponsiveTable"
+                useExportToExcel="true"
+                exportType="GW"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="{i18n>partnerTypeTableTitle}"
+                showRowCount="true"
+                enableAutoBinding="true"
+                demandPopin="true"
+                initiallyVisibleFields="Partner,Type,BuGroup,NameOrg1,NameOrg2,NameOrg3,NameOrg4,IndSector,BuSort1,BuSort2,Xsexm,Xsexf"
+                requestAtLeastFields="Partner,Type"
+                ignoredFields="Client,NotReleased,NotLgCompetent,BpEewDummy,Rate">
+                <!-- Custom toolbar -->
+                <smartTable:customToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
+                        <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                        <Button
+                            id="createCustomerButton"
+                            text="{i18n>createCustomer}"
+                            type="Emphasized"
+                           
+                            press="onCreateCustomer"/>
+                    </OverflowToolbar>
+                </smartTable:customToolbar>
+                
+                <!-- Table personalization settings -->
+                <smartTable:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData" growFactor="1" baseSize="0%"/>
+                </smartTable:layoutData>
+                
+                <Table
+                    id="partnerTable"
+                    growing="true"
+                    growingThreshold="20"
+                    growingScrollToLoad="true"
+                    mode="SingleSelectMaster"
+                    alternateRowColors="true"
+                    sticky="ColumnHeaders,HeaderToolbar"
+                    selectionChange="onTableSelectionChange">
+                    
+                </Table>
+            </smartTable:SmartTable>
+        </content>
+        
+        <footer>
+            <OverflowToolbar id="_IDGenOverflowToolbar2">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                <Button 
+                    id="navToCustomerButton"
+                    text="{i18n>navToCustomer}"
+                    type="Ghost"
+                    enabled="{= ${partnerTypeSmartTable>/selectedIndex} !== -1}"
+                    press="onNavToCustomer"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,7 +1,7 @@
 {
   "_version": "1.37.0",
   "sap.app": {
-    "id": "fioriamlclient.fioritestclient",
+    "id": "bpcart3",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,39 +12,17 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.17.0",
-      "toolsId": "1c9ad2e2-224c-4c50-b9f6-07261f6e26b8"
+      "version": "1.17.1",
+      "toolsId": "43531c22-2d5c-420f-9305-49c9a08672ab"
     },
     "dataSources": {
-      "ZFIORI_CLIENTE_CDS_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZFIORI_CLIENTE_CDS_VAN',Version='0001')/$value/",
-        "type": "ODataAnnotation",
-        "settings": {
-          "localUri": "localService/mainService/ZFIORI_CLIENTE_CDS_VAN.xml"
-        }
-      },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZFIORI_CLIENTE_CDS/",
+        "uri": "/sap/opu/odata/sap/ZODATA_PR_CUSTOMER4_SRV/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "ZFIORI_CLIENTE_CDS_VAN"
-          ],
+          "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
-        }
-      }
-    },
-    "crossNavigation": {
-      "inbounds": {
-        "ZCLIENT-DISPLAY": {
-          "semanticObject": "ZCLIENT",
-          "action": "DISPLAY",
-          "title": "{{ZCLIENT-DISPLAY.flpTitle}}",
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          }
         }
       }
     }
@@ -71,7 +49,8 @@
       "minUI5Version": "1.96.10",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.ui.comp": {}
       }
     },
     "contentDensities": {
@@ -82,13 +61,15 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "fioriamlclient.fioritestclient.i18n.i18n"
+          "bundleName": "bpcart3.i18n.i18n"
         }
       },
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "useBatch": false
+        }
       }
     },
     "resources": {
@@ -103,7 +84,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "fioriamlclient.fioritestclient.view",
+        "viewPath": "bpcart3.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -117,17 +98,17 @@
           ]
         },
         {
-          "pattern": "create",
-          "name": "createCustomer",
+          "name": "CustomerView",
+          "pattern": "customer/{partnerId}",
           "target": [
-            "createCustomer"
+            "CustomerView"
           ]
         },
         {
-          "pattern": "customerDetail/{customerId}",
-          "name": "customerDetail",
+          "name": "CreateCustomerView",
+          "pattern": "createCustomer",
           "target": [
-            "TargetCustomerDetailView"
+            "CreateCustomerView"
           ]
         }
       ],
@@ -139,22 +120,20 @@
           "viewId": "MainView",
           "viewName": "MainView"
         },
-        "createCustomer": {
-          "id": "createCustomer",
-          "viewId": "createCustomer",
-          "viewName": "CreateCustomer",
-          "viewLevel": 2
+        "CustomerView": {
+          "viewName": "CustomerView",
+          "viewLevel": 1,
+          "viewId": "CustomerView"
         },
-        "TargetCustomerDetailView": {
-          "id": "CustomerDetailView",
-          "name": "CustomerDetailView",
-          "viewName": "CustomerDetailView",
-          "viewLevel": 1
+        "CreateCustomerView": {
+          "viewName": "CreateCustomerView",
+          "viewLevel": 1,
+          "viewId": "CreateCustomerView"
         }
       }
     },
     "rootView": {
-      "viewName": "fioriamlclient.fioritestclient.view.App",
+      "viewName": "bpcart3.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

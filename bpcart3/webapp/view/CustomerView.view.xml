@@ -1,0 +1,251 @@
+<mvc:View
+    controllerName="bpcart3.controller.CustomerView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    displayBlock="true">
+
+    <semantic:SemanticPage id="customerSemanticPage" headerPinnable="false" toggleHeaderOnTitleClick="false">
+        <semantic:titleHeading>
+            <Title id="customerPageTitle" text="{i18n>customerViewTitle}: {Customer>/Partner}" level="H1" />
+        </semantic:titleHeading>
+        
+        <semantic:content>
+            <IconTabBar id="customerTabBar" expandable="false" applyContentPadding="true" class="sapUiResponsiveContentPadding">
+                <items>
+                    <!-- General Information Tab -->
+                    <IconTabFilter id="tabGeneral" icon="sap-icon://customer" key="general" text="{i18n>generalInfo}">
+                        <f:SimpleForm id="customerGeneralForm"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="2"
+                            columnsM="1">
+                            <f:content>
+                                <!-- Basic Customer Information -->
+                                <core:Title id="basicInfoTitle" text="{i18n>basicInfo}" />
+                                <Label id="lblPartnerId" text="{i18n>partnerId}" />
+                                <Text id="txtPartnerId" text="{Customer>/Partner}" />
+                                
+                                <Label id="lblType" text="{i18n>partnerType}" />
+                                <Text id="txtType" text="{Customer>/Type}" />
+                                
+                                <Label id="lblBusinessGroup" text="{i18n>businessGroup}" />
+                                <Text id="txtBusinessGroup" text="{Customer>/BuGroup}" />
+                                
+                                <Label id="lblName" text="{i18n>name}" />
+                                <Text id="txtName" text="{= ${Customer>/NameOrg1} ? ${Customer>/NameOrg1} : ${Customer>/NameFirst} + ' ' + ${Customer>/NameLast}}" />
+                                
+                                <Label id="lblNameMc1" text="{i18n>mcName1}" />
+                                <Text id="txtNameMc1" text="{Customer>/McName1}" />
+                                
+                                <Label id="lblNameMc2" text="{i18n>mcName2}" />
+                                <Text id="txtNameMc2" text="{Customer>/McName2}" />
+                                
+                                <Label id="lblPersonNumber" text="{i18n>personNumber}" />
+                                <Text id="txtPersonNumber" text="{Customer>/Persnumber}" />
+                                
+                                <!-- Additional Information -->
+                                <core:Title id="additionalInfoTitle" text="{i18n>additionalInfo}" />
+                                <Label id="lblIndustrySector" text="{i18n>industrySector}" />
+                                <Text id="txtIndustrySector" text="{Customer>/IndSector}" />
+                                
+                                <Label id="lblSortKey1" text="{i18n>sortKey1}" />
+                                <Text id="txtSortKey1" text="{Customer>/BuSort1}" />
+                                
+                                <Label id="lblSortKey2" text="{i18n>sortKey2}" />
+                                <Text id="txtSortKey2" text="{Customer>/BuSort2}" />
+                                
+                                <Label id="lblLanguCorr" text="{i18n>languageCorrespondence}" />
+                                <Text id="txtLanguCorr" text="{Customer>/LanguCorr}" />
+                                
+                                <Label id="lblNaturalPerson" text="{i18n>naturalPerson}" />
+                                <Text id="txtNaturalPerson" text="{= ${Customer>/Natpers} === 'X' ? ${i18n>yes} : ${i18n>no}}" />
+                                
+                                <Label id="lblCreatedBy" text="{i18n>createdBy}" />
+                                <Text id="txtCreatedBy" text="{Customer>/Crusr}" />
+                                
+                                <Label id="lblCreatedOn" text="{i18n>createdOn}" />
+                                <Text id="txtCreatedOn" text="{
+                                    path: 'Customer>/Crdat',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'medium'
+                                    }
+                                }" />
+                                
+                                <Label id="lblChangedBy" text="{i18n>changedBy}" />
+                                <Text id="txtChangedBy" text="{Customer>/Chusr}" />
+                                
+                                <Label id="lblChangedOn" text="{i18n>changedOn}" />
+                                <Text id="txtChangedOn" text="{
+                                    path: 'Customer>/Chdat',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'medium'
+                                    }
+                                }" />
+                            </f:content>
+                        </f:SimpleForm>
+                    </IconTabFilter>
+                    
+                    <!-- Contact Information Tab -->
+                    <IconTabFilter id="tabContact" icon="sap-icon://contacts" key="contact" text="{i18n>contactInfo}">
+                        <f:SimpleForm id="customerContactForm"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="2"
+                            columnsM="1">
+                            <f:content>
+                                <!-- Address Information -->
+                                <core:Title id="addressTitle" text="{i18n>addressInfo}" />
+                                <Label id="lblLocation1" text="{i18n>location1}" />
+                                <Text id="txtLocation1" text="{Customer>/Location1}" />
+                                
+                                <Label id="lblLocation2" text="{i18n>location2}" />
+                                <Text id="txtLocation2" text="{Customer>/Location2}" />
+                                
+                                <Label id="lblLocation3" text="{i18n>location3}" />
+                                <Text id="txtLocation3" text="{Customer>/Location3}" />
+                                
+                                <!-- The original address fields are kept but might need to be connected to different properties -->
+                                <!-- Personal Information -->
+                                <core:Title id="personalInfoTitle" text="{i18n>personalInfo}" />
+                                
+                                <Label id="lblGender" text="{i18n>gender}" />
+                                <Text id="txtGender" text="{= ${Customer>/Xsexm} ? ${i18n>male} : ${Customer>/Xsexf} ? ${i18n>female} : ${Customer>/Xsexu} ? ${i18n>undefined} : ''}" />
+                                
+                                <Label id="lblBirthDate" text="{i18n>birthDate}" visible="{= !!${Customer>/Birthdt}}" />
+                                <Text id="txtBirthDate" text="{
+                                    path: 'Customer>/Birthdt',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'medium'
+                                    }
+                                }" visible="{= !!${Customer>/Birthdt}}" />
+                                
+                                <Label id="lblTdSwitch" text="{i18n>tdSwitch}" />
+                                <Text id="txtTdSwitch" text="{= ${Customer>/TdSwitch} === 'X' ? ${i18n>yes} : ${i18n>no}}" />
+                            </f:content>
+                        </f:SimpleForm>
+                    </IconTabFilter>
+                    
+                    <!-- Orders Tab - Keeping as is -->
+                    <IconTabFilter id="tabOrders" icon="sap-icon://sales-order" key="orders" text="{i18n>customerOrders}">
+                        <Table
+                            id="ordersTable"
+                            items="{Orders>/results}"
+                            alternateRowColors="true"
+                            growing="true"
+                            growingThreshold="10"
+                            growingScrollToLoad="true"
+                            sticky="ColumnHeaders,HeaderToolbar"
+                            noDataText="{i18n>noOrdersFound}">
+                            <headerToolbar>
+                                <Toolbar id="ordersTableToolbar">
+                                    <Title id="ordersTableTitle" text="{i18n>ordersTableTitle}" level="H2" />
+                                    <ToolbarSpacer id="ordersToolbarSpacer" />
+                                    <Button
+                                        id="refreshOrdersButton"
+                                        icon="sap-icon://refresh"
+                                        tooltip="{i18n>refreshOrders}"
+                                        press="onRefreshOrders" />
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column id="colOrderId" width="12rem">
+                                    <Text id="_IDGenText1" text="{i18n>orderId}" />
+                                </Column>
+                                <Column id="colOrderDate">
+                                    <Text id="_IDGenText2" text="{i18n>orderDate}" />
+                                </Column>
+                                <Column id="colOrderStatus" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text id="_IDGenText3" text="{i18n>orderStatus}" />
+                                </Column>
+                                <Column id="colTotalValue" hAlign="End">
+                                    <Text id="_IDGenText4" text="{i18n>totalValue}" />
+                                </Column>
+                                <Column id="colCurrency" width="5rem" hAlign="Begin">
+                                    <Text id="_IDGenText5" text="{i18n>currency}" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="orderItem" type="Navigation" press="onOrderPress">
+                                    <cells>
+                                        <ObjectIdentifier id="_IDGenObjectIdentifier"
+                                            title="{Orders>OrderId}"
+                                            text="{Orders>OrderType}" />
+                                        <Text id="_IDGenText6"
+                                            text="{
+                                                path: 'Orders>OrderDate',
+                                                type: 'sap.ui.model.type.Date',
+                                                formatOptions: {
+                                                    style: 'medium'
+                                                }
+                                            }" />
+                                        <ObjectStatus id="_IDGenObjectStatus"
+                                            text="{Orders>Status}"
+                                            state="{= ${Orders>Status} === 'Completed' ? 'Success' :
+                                                    ${Orders>Status} === 'Processing' ? 'Warning' :
+                                                    ${Orders>Status} === 'New' ? 'Information' : 'None'}" />
+                                        <ObjectNumber id="_IDGenObjectNumber"
+                                            number="{
+                                                path: 'Orders>TotalValue',
+                                                type: 'sap.ui.model.type.Float',
+                                                formatOptions: {
+                                                    maxFractionDigits: 2,
+                                                    minFractionDigits: 2
+                                                }
+                                            }"
+                                            unit="{Orders>Currency}" />
+                                        <Text id="_IDGenText7" text="{Orders>Currency}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </semantic:content>
+        
+        <semantic:footerCustomActions>
+            <Button
+                id="editCustomerButton"
+                text="{i18n>editCustomer}"
+                type="Emphasized"
+                press="onEditCustomer" />
+            <Button
+                id="createOrderButton"
+                text="{i18n>createOrder}"
+                press="onCreateOrder" />
+        </semantic:footerCustomActions>
+        
+        <semantic:footerMainAction>
+            <semantic:FooterMainAction
+                id="backButton"
+                text="{i18n>back}"
+                press="onNavBack" />
+        </semantic:footerMainAction>
+    </semantic:SemanticPage>
+</mvc:View>

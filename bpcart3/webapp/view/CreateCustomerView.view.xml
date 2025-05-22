@@ -1,0 +1,155 @@
+<mvc:View
+    controllerName="bpcart3.controller.CreateCustomer"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    displayBlock="true">
+
+    <semantic:SemanticPage id="editCustomerPage" headerPinnable="false" toggleHeaderOnTitleClick="false">
+        <semantic:titleHeading>
+            <Title id="editCustomerTitle" text="{i18n>editCustomerTitle}: {Customer>/Partner}" level="H1" />
+        </semantic:titleHeading>
+        <semantic:content>
+            <f:SimpleForm id="editCustomerForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1">
+                <f:content>
+                    <!-- Basic Customer Information -->
+                    <core:Title id="_IDGenTitle" text="{i18n>contactInfo}" />
+
+<Label id="_IDGenLabel1" text="{i18n>phone}" />
+<Input id="_IDGenInput" value="{Customer>/Telephone}" />
+
+<Label id="_IDGenLabel2" text="{i18n>fax}" />
+<Input id="_IDGenInput1" value="{Customer>/Fax}" />
+
+<Label id="_IDGenLabel3" text="{i18n>email}" />
+<Input id="_IDGenInput2" value="{Customer>/Email}" />
+
+<core:Title id="_IDGenTitle1" text="{i18n>address}" />
+
+<Label id="_IDGenLabel4" text="{i18n>street}" />
+<Input id="_IDGenInput3" value="{Customer>/Street}" />
+
+<Label id="_IDGenLabel5" text="{i18n>postalCode}" />
+<Input id="_IDGenInput4" value="{Customer>/Postlcod1}" />
+
+<Label id="_IDGenLabel6" text="{i18n>city}" />
+<Input id="_IDGenInput5" value="{Customer>/City}" />
+
+<Label id="_IDGenLabel7" text="{i18n>region}" />
+<Input id="_IDGenInput6" value="{Customer>/Region}" />
+
+<Label id="_IDGenLabel8" text="{i18n>country}" />
+<Input id="_IDGenInput7" value="{Customer>/Country}" />
+
+<core:Title id="_IDGenTitle2" text="{i18n>fiscalData}" />
+
+<Label id="_IDGenLabel9" text="{i18n>taxCategory}" />
+<Input id="_IDGenInput8" value="{Customer>/TaxCategory}" />
+
+<Label id="_IDGenLabel10" text="{i18n>taxNumber}" />
+<Input id="_IDGenInput9" value="{Customer>/TaxNumber}" />
+
+<Label id="_IDGenLabel11" text="{i18n>language}" />
+<Input id="_IDGenInput10" value="{Customer>/Langu}" />
+
+<core:Title id="_IDGenTitle3" text="{i18n>commercialData}" />
+
+<Label id="_IDGenLabel122" text="{i18n>category}" />
+<ComboBox
+    xmlns="sap.m"
+    id="comboCategory"
+    value="{CategoryModel>/Customer/Category}"
+    placeholder="Selecciona una categoría"
+    items="{CategoryModel>/Customer/Categories}"
+    change="onCategoryChange">
+    <items>
+        <core:Item id="_IDGenItem"
+            xmlns:core="sap.ui.core"
+            key="{CategoryModel>CategoryId}"
+            text="{CategoryModel>CategoryName}" />
+    </items>
+</ComboBox>
+
+
+
+
+
+
+<Label id="_IDGenLabel12" text="{i18n>bpRole}" />
+<Input id="_IDGenInput11" value="{Customer>/Role}" />
+
+<Label id="_IDGenLabel13" text="{i18n>customerRole}" />
+<Input id="_IDGenInput12" value="{Customer>/CustomerRole}" />
+
+<Label id="_IDGenLabel14" text="{i18n>companyCode}" />
+<Input id="_IDGenInput13" value="{Customer>/CompanyCode}" />
+
+<Label id="_IDGenLabel15" text="{i18n>reconciliationAccount}" />
+<Input id="_IDGenInput14" value="{Customer>/RecAccount}" />
+
+<Label id="_IDGenLabel16" text="{i18n>paymentTerms}" />
+<Input id="_IDGenInput15" value="{Customer>/PayTerm}" />
+
+<Label id="_IDGenLabel17" text="{i18n>salesOrganization}" />
+<Input id="_IDGenInput16" value="{Customer>/SalesOrg}" />
+
+<Label id="_IDGenLabel18" text="{i18n>distributionChannel}" />
+<Input id="_IDGenInput17" value="{Customer>/Distribution}" />
+
+<Label id="_IDGenLabel19" text="{i18n>division}" />
+<Input id="_IDGenInput18" value="{Customer>/Division}" />
+
+<Label id="_IDGenLabel20" text="{i18n>currency}" />
+<Input id="_IDGenInput19" value="{Customer>/Currency}" />
+
+<Label id="_IDGenLabel21" text="{i18n>inco1}" />
+<Input id="_IDGenInput20" value="{Customer>/Inco1}" />
+
+<Label id="_IDGenLabel22" text="{i18n>inco2}" />
+<Input id="_IDGenInput21" value="{Customer>/Inco2}" />
+
+<Label id="_IDGenLabel23" text="{i18n>tax}" />
+<Input id="_IDGenInput22" value="{Customer>/Tax}" />
+
+                     <Toolbar id="_IDGenToolbar1">
+        <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+        <Button
+            id="saveButton"
+            text="{i18n>save}"
+            type="Emphasized"
+            press="onSave" />
+        <Button
+            id="cancelButton"
+            text="{i18n>cancel}"
+            press="onCancel" />
+    </Toolbar>
+                </f:content>
+            </f:SimpleForm>
+<!--             
+            <MessageStrip id="messageStrip" 
+                text="{i18n>saveReminderMessage}" 
+                type="Information" 
+                
+                showIcon="true"
+                class="sapUiSmallMarginTop">
+            </MessageStrip> -->
+        </semantic:content>
+    
+    </semantic:SemanticPage>
+</mvc:View>
